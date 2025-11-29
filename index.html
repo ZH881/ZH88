@@ -10,47 +10,138 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
-        body { background: #0d0d0d; color: #fff; }
+        /* General Background and Text Colors */
+        body { 
+            background: #111; /* Dark Gray / Near Black Background */
+            color: #fff; /* Pure White Text */
+        }
 
-        header { width: 100%; padding: 25px 10%; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; backdrop-filter: blur(10px); z-index: 100; }
+        /* Header / Navigation */
+        header { 
+            width: 100%; 
+            padding: 25px 10%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: fixed; 
+            top: 0; 
+            background-color: rgba(17, 17, 17, 0.8); /* Dark header with transparency */
+            backdrop-filter: blur(8px); 
+            z-index: 100; 
+            border-bottom: 1px solid #333; /* Subtle dividing line */
+        }
 
         header h1 { font-weight: 700; letter-spacing: 1px; }
 
-        nav a { margin-left: 25px; text-decoration: none; color: #fff; font-weight: 400; transition: .3s; }
-        nav a:hover { color: #4cf5c5; }
+        nav a { 
+            margin-left: 25px; 
+            text-decoration: none; 
+            color: #fff; 
+            font-weight: 400; 
+            transition: .3s; 
+        }
+        nav a:hover { 
+            color: #bbb; /* Subtle hover color change to light gray */
+        }
 
-        .hero { height: 100vh; display: flex; align-items: center; padding: 0 10%; background: linear-gradient(135deg, #111, #1a1a1a); }
+        /* Hero Section */
+        .hero { 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            padding: 0 10%; 
+            background: #111; /* Solid dark background */
+        }
 
         .hero-text h2 { font-size: 3rem; font-weight: 700; }
-        .hero-text h2 span { color: #4cf5c5; }
-        .hero-text p { margin-top: 15px; width: 60%; line-height: 1.6; color: #ccc; }
+        .hero-text h2 span { 
+            color: #fff; /* Accent color is pure white */
+            border-bottom: 4px solid #fff; /* Underline accent */
+            padding-bottom: 5px;
+        }
+        .hero-text p { margin-top: 15px; width: 60%; line-height: 1.6; color: #bbb; /* Lighter gray for secondary text */
+        }
 
-        .hero-text .btn { margin-top: 25px; display: inline-block; padding: 12px 30px; background: #4cf5c5; color: #000; text-decoration: none; font-weight: 600; border-radius: 8px; transition: .3s; }
-        .hero-text .btn:hover { background: #35c9a0; }
+        /* Call-to-Action Button - High Contrast */
+        .hero-text .btn { 
+            margin-top: 25px; 
+            display: inline-block; 
+            padding: 12px 30px; 
+            background: #fff; /* White Background */
+            color: #000; /* Black Text */
+            text-decoration: none; 
+            font-weight: 600; 
+            border-radius: 4px; /* Slightly sharper edges */
+            border: 2px solid #fff;
+            transition: .3s; 
+        }
+        .hero-text .btn:hover { 
+            background: transparent; /* Inverted hover effect */
+            color: #fff;
+        }
 
         /* About Section */
         .about { padding: 120px 10% 80px; display: flex; gap: 50px; }
-        .about img { width: 320px; border-radius: 20px; }
+        .about img { 
+            width: 320px; 
+            border-radius: 8px; /* Slightly sharper edges */
+            filter: grayscale(100%); /* Force image to black and white */
+            border: 1px solid #333; /* Subtle border */
+        }
         .about .info h3 { font-size: 2rem; margin-bottom: 15px; }
-        .about .info p { color: #ccc; line-height: 1.7; }
+        .about .info p { color: #bbb; line-height: 1.7; }
 
         /* Projects */
         .projects { padding: 80px 10%; }
         .projects h2 { font-size: 2.5rem; margin-bottom: 20px; }
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .project-card { background: #1c1c1c; padding: 25px; border-radius: 16px; transition: .3s; }
-        .project-card:hover { transform: translateY(-5px); }
-        .project-card img { width: 100%; border-radius: 10px; }
+        
+        /* Project Card - Subtle Lift */
+        .project-card { 
+            background: #1a1a1a; /* Darker than body background */
+            padding: 25px; 
+            border-radius: 8px; 
+            transition: .3s; 
+            border: 1px solid #222; /* Subtle outline */
+        }
+        .project-card:hover { 
+            transform: translateY(-5px); 
+            background: #222; /* Slight darkening on hover */
+        }
+        .project-card img { width: 100%; border-radius: 4px; filter: grayscale(100%); }
         .project-card h4 { margin-top: 15px; font-size: 1.2rem; }
-        .project-card p { font-size: .9rem; color: #bbb; margin-top: 5px; }
+        .project-card p { font-size: .9rem; color: #999; margin-top: 5px; }
 
-        /* Contact */
+        /* Contact Section */
         .contact { padding: 80px 10%; text-align: center; }
         .contact h2 { font-size: 2.5rem; margin-bottom: 15px; }
-        .contact p { color: #ccc; margin-bottom: 25px; }
-        .contact a { display: inline-block; padding: 12px 28px; background: #4cf5c5; border-radius: 8px; color: #000; text-decoration: none; font-weight: 600; }
+        .contact p { color: #bbb; margin-bottom: 25px; }
+        
+        /* Contact Button - Matches Hero Button Style */
+        .contact a { 
+            display: inline-block; 
+            padding: 12px 28px; 
+            background: #fff; 
+            border-radius: 4px; 
+            color: #000; 
+            text-decoration: none; 
+            font-weight: 600; 
+            border: 2px solid #fff;
+            transition: .3s;
+        }
+        .contact a:hover {
+            background: transparent;
+            color: #fff;
+        }
 
-        footer { padding: 25px; text-align: center; color: #666; margin-top: 50px; }
+        /* Footer */
+        footer { 
+            padding: 25px; 
+            text-align: center; 
+            color: #666; /* Very subtle gray */
+            margin-top: 50px; 
+            border-top: 1px solid #222;
+        }
     </style>
 </head>
 <body>
@@ -67,14 +158,14 @@
 
 <section class="hero" id="home">
     <div class="hero-text">
-        <h2>Hello, I'm <span>Tee Zhen Hong</span> I Love Yi Wen</h2>
+        <h2>Hello, I'm <span>Tee Zhen Hong</span></h2>
         <p>A 2025 Multimedia Designer specializing in 3D Art, Motion Graphics, Web Design, and Digital Creative Production.</p>
         <a href="#projects" class="btn">View My Work</a>
     </div>
 </section>
 
 <section class="about" id="about">
-    <img src="https://via.placeholder.com/350x400" alt="Profile" />
+    <img src="https://via.placeholder.com/350x400/333/fff?text=PROFILE+IMAGE" alt="Profile" />
     <div class="info">
         <h3>About Me</h3>
         <p>I am a passionate multimedia design student with strong interest in 3D modeling, creative visuals, UI/UX, and modern digital content. I create visually engaging experiences using cutting‑edge tools and modern design trends.</p>
@@ -85,19 +176,19 @@
     <h2>Featured Projects</h2>
     <div class="project-grid">
         <div class="project-card">
-            <img src="https://via.placeholder.com/600x350" />
+            <img src="https://via.placeholder.com/600x350/444/fff?text=3D+MODELING+PROJECT" />
             <h4>3D Modeling Showcase</h4>
             <p>High‑quality game‑ready assets designed in Blender & Substance Painter.</p>
         </div>
 
         <div class="project-card">
-            <img src="https://via.placeholder.com/600x350" />
+            <img src="https://via.placeholder.com/600x350/444/fff?text=MOTION+GRAPHICS+PROJECT" />
             <h4>Motion Graphics</h4>
             <p>After Effects animations, transitions, and visual storytelling.</p>
         </div>
 
         <div class="project-card">
-            <img src="https://via.placeholder.com/600x350" />
+            <img src="https://via.placeholder.com/600x350/444/fff?text=PHOTOGRAPHY+PROJECT" />
             <h4>Photography Portfolio</h4>
             <p>Creative direction, composition, and color‑graded visual sets.</p>
         </div>
